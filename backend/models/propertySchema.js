@@ -29,6 +29,10 @@ const propertySchema= new mongoose.Schema({
         type:Number,
         required:true
     },
+    buyorrentm:{
+       type:Boolean,
+       required:true
+    },
     images: [{
          type: String, // URLs to property images
          

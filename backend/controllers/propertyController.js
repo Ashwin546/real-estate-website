@@ -36,8 +36,8 @@
  const addProperty=async (req,res)=>{
     
     try {
-        const {description,type,location,bedrooms,bathrooms,area,price} = req.body;
-        if (!description || !type || !location || !bedrooms || !bathrooms || !area || !price) {
+        const {description,type,location,bedrooms,bathrooms,area,price,buyorrent} = req.body;
+        if (!description || !type || !location || !bedrooms || !bathrooms || !area || !price || !buyorrent) {
             
             return res.status(400).json({ error: 'Missing required fields' });
         }
@@ -64,6 +64,7 @@
       
       area,
       //images,
+      buyorrent,
       postedBy: req.user._id,
     });
     
