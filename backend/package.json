@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "engines": {
+    "node": "18.x"
+  },
   "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./server.js"
+    "start": "node ./server.js"
   },
   "author": "Ashwin chourasia",
   "license": "ISC",
