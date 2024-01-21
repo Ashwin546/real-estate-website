@@ -1,0 +1,41 @@
+/* Footer.css */
+
+.footer-container {
+    background-color:rgb(48, 77, 77);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 10px 0 0 0;
+  }
+  
+  .nav-item {
+    margin: 0 15px;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+  
+  .nav-link:hover {
+    color: #ffd700; /* Change the color on hover */
+  }
+  
+  .footer-text {
+    margin: 0;
+    font-size: 14px;
+  }
+  
