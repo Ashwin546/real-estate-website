@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import PropComp from '../PropComp/PropComp';
+import PropComp from '../../components/PropComp/PropComp';
 
 function Property() {
   const [data, setData] = useState({ allProperties: {} });
@@ -31,19 +31,10 @@ function Property() {
       <ul>
         {Array.isArray(data.allProperties) ? (
           data.allProperties.map((property, index) => (
-            <li key={index}>
-              <div>
-                 {property.description}
-              </div>
-              <div>
-                  {property.type}
-              </div>
-              <div>
-                  {property.location}
-              </div>
-            </li>
-          ))
-        ) : (
+             <div className='property'>
+                <PropComp key={index} data={property}/>
+             </div>   
+         ))) : (
           <p>No properties found</p>
         )}
       </ul>
