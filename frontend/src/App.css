@@ -1,0 +1,8 @@
+.App{
+    padding: 0;
+    margin: 0;
+    min-height: 100vh; /* This ensures the body takes at least the full height of the viewport */
+    display: flex;
+    flex-direction: column;
+    
+}

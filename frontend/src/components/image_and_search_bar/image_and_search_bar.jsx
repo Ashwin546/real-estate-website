@@ -49,7 +49,7 @@ function Image_and_search_bar() {
                 type="radio"
                 value="plots/land"
                 checked={searchType === 'plots'}
-                onChange={() => setSearchType('plots')}
+                onChange={() => setSearchType('plot')}
               />
               Plots/land
             </label>

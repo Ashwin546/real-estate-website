@@ -1,11 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
-import Image_and_search_bar from './components/image_and_search_bar/image_and_search_bar';
+
 
 import Footer from './components/Footer/Footer';
 import Homepage from './Pages/Homepage/Homepage';
 import Property from './Pages/Propertypage/property';
+import SignUp from './Pages/Signup/SignUp';
 
+import './App.css'
+import Login from './Pages/Login/Login';
 
 function App() {
   return (
@@ -17,7 +20,8 @@ function App() {
                 >
                 </Route>
                 <Route element={<Property/>} path='/properties' exact></Route>
-
+                <Route element={<Login/>} path='/login'></Route>
+                <Route element={<SignUp/>} path ='/sign-up'></Route>
             </Routes>
             <Footer/>
         

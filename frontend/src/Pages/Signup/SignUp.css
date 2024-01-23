@@ -1,0 +1,45 @@
+/* SignUp.css */
+
+/* Style for the sign-up wrapper */
+.SignUpWrapper {
+    width: 35%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  /* Style for the sign-up form container */
+  .SignUpForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Style for form elements */
+  .SignUpInput {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  .input-label{
+    display: flex;
+    flex-direction: column;
+  }
+  .SignUpButton {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .SignUpButton:hover {
+    background-color: #45a049;
+  }
+  
