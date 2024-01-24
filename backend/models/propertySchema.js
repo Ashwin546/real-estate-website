@@ -29,8 +29,9 @@ const propertySchema= new mongoose.Schema({
         type:Number,
         required:true
     },
-    buyorrentm:{
+    forSale:{
        type:Boolean,
+       default:false,
        required:true
     },
     images: [{

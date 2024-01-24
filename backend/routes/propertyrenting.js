@@ -9,7 +9,7 @@ const upload=multer({storage:storage});
 
 
 router.route('/').get(allProperty)
-router.route('/viewProperty').get(viewProperty);
+router.route('/viewProperty').post(viewProperty);
 router.route('/addproperty').post(isAuth,addProperty);
 router.route('/deleteproperty/:id').delete(isAuth,deleteProperty);
 module.exports=router;

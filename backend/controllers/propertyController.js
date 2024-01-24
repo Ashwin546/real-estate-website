@@ -17,27 +17,28 @@
  };
  const viewProperty=async (req,res)=>{
     
+    try {
+        const { type, buyOrRent, location } = req.body;
     
-    try{
-        const {location,type}=req.query;
-        const allProperty=await Property.find({location,type});
-        res.status(200).json({
-            allProperty,
-            message:"succesful fetching"
-        })
-    }
-    catch(err){
-        res.status(400).json({
-            message: "error in fetching properties",
-            err
-        })
-    }
+        // Build a dynamic query based on provided parameters
+        const query = {};
+        if (type) query.type = type;
+        if (buyOrRent) query.forSale = buyOrRent === 'buy';
+        if (location) query.location = { $regex: new RegExp(location, 'i') }; // Case-insensitive search
+    
+        const properties = await Property.find(query);
+    
+        res.json(properties);
+      } catch (error) {
+        console.error('Error fetching properties:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+      }
  }
  const addProperty=async (req,res)=>{
     
     try {
-        const {description,type,location,bedrooms,bathrooms,area,price,buyorrent} = req.body;
-        if (!description || !type || !location || !bedrooms || !bathrooms || !area || !price || !buyorrent) {
+        const {description,type,location,bedrooms,bathrooms,area,price,forSale} = req.body;
+        if (!description || !type || !location || !bedrooms || !bathrooms || !area || !price || !forSale) {
             
             return res.status(400).json({ error: 'Missing required fields' });
         }
@@ -64,7 +65,7 @@
       
       area,
       //images,
-      buyorrent,
+      forSale,
       postedBy: req.user._id,
     });
     
