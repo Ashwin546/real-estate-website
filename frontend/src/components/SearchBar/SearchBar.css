@@ -1,0 +1,27 @@
+/* SearchBar.css */
+
+.search-container {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    margin: 10px;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #181717; /* Change the color as desired */
+    border-radius: 5px;
+    outline: none;
+    margin-right: 5px;
+}
+
+.search-button {
+    background-color:rgba(0, 0, 0, 0.9); /* Change the color as desired */
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}

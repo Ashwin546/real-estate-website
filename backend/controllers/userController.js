@@ -57,4 +57,5 @@ const authUser=async (req,res)=>{
 
    
 }
+
 module.exports={registerUser,authUser}

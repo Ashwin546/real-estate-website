@@ -18,15 +18,15 @@
  const viewProperty=async (req,res)=>{
     
     try {
-        const { type, buyOrRent, location } = req.body;
+        const {location } = req.body;
     
         // Build a dynamic query based on provided parameters
         const query = {};
-        if (type) query.type = type;
-        if (buyOrRent) query.forSale = buyOrRent === 'buy';
-        if (location) query.location = { $regex: new RegExp(location, 'i') }; // Case-insensitive search
+        // if (type) query.type = type;
+        // if (buyOrRent) query.forSale = buyOrRent === 'buy';
+        // if (location) query.location = { $regex: new RegExp(location, 'i') }; // Case-insensitive search
     
-        const properties = await Property.find(query);
+        const properties = await Property.find({location});
     
         res.json(properties);
       } catch (error) {

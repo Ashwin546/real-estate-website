@@ -16,13 +16,15 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
+  display: flex;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: 70vw;
+  height: 40vh;
 }
 
-.property-card img {
-  width: 100%;
-  height: 200px;
+.img {
+  width: 40%;
+  height: 20vh;
   object-fit: cover;
 }
 

@@ -5,20 +5,21 @@ const PropertyContextProvider = ({children}) => {
     const [search,setSearch]=useState()
 
     const [properties,setProperties]=useState([]);
-    const getProperties = async (searchTerm) => {
+    const getProperties = async ({location}) => {
         try {
           const response = await fetch('http://localhost:8000/api/property/viewProperty', {
             method:'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ search: searchTerm }),
+            body: JSON.stringify({location}),
           });
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
           }
     
           const data = await response.json();
+          console.log(data);
           setProperties(data);
         } catch (error) {
             console.error('Error fetching properties:', error);
