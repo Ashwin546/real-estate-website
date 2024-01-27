@@ -1,23 +1,47 @@
 // SignUp.js
 import React, { useState } from 'react';
 import './SignUp.css'; // Import the CSS file for styling
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-  });
+  
+  const Navigate=useNavigate(); 
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const handleSignup = async () => {
+    try {
+      const response = await fetch('http://localhost:8000/api/user', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(
+          {
+            name,
+            email,
+            password
+          }
+        ),
+      });
+
+      if (!response.ok) {
+        throw new Error('Signup failed');
+      }
+
+      // Optionally, you can handle success (e.g., redirect to login page)
+      console.log('Signup successful!');
+    } catch (error) {
+      // Handle signup error
+      console.error('Signup failed:', error.message);
+    }
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     // You can add your sign-up logic here, e.g., make an API call
-    console.log('Form submitted:', formData);
+    handleSignup();
+    Navigate('/login')
   };
 
   return (
@@ -29,8 +53,8 @@ const SignUp = () => {
           <input
             type="text"
             name="username"
-            value={formData.username}
-            onChange={handleChange}
+            value={name}
+            onChange={(e)=>(setName(e.target.value))}
             className="SignUpInput"
             required
           />
@@ -40,8 +64,8 @@ const SignUp = () => {
           <input
             type="email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e)=>(setEmail(e.target.value))}
             className="SignUpInput"
             required
           />
@@ -51,8 +75,8 @@ const SignUp = () => {
           <input
             type="password"
             name="password"
-            value={formData.password}
-            onChange={handleChange}
+            value={password}
+            onChange={(e)=>(setPassword(e.target.value))}
             className="SignUpInput"
             required
           />

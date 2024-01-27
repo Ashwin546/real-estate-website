@@ -1,16 +1,21 @@
 // Login.jsx
 
 import React, { useState } from 'react';
+import { useAuth } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
+  const Navigate=useNavigate();
+  const {login}=useAuth()
   const handleLogin = (event) => {
     event.preventDefault();
-    console.log('Username:', username);
-    console.log('Password:', password);
+    // console.log('Username:', username);
+    // console.log('Password:', password);
     // Add your authentication logic here
+    login(username,password);
+     Navigate('/profile')
   };
 
   return (
